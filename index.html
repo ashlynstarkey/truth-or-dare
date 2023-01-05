@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Truth or Dare?</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <div id="editor">
+            <h1>Truths</h1>
+            <textarea id="truth-text-area" rows="25" cols="40"></textarea>
+            <h1>Dares</h1>
+            <textarea id="dare-text-area" rows="25" cols="40"></textarea>
+            <button id="editor-save-btn">Save</button>
+        </div>
+
+        <div id="main">
+            <div class="header-row">
+                <button id="show-editor-btn">Edit Prompts</button>
+            </div>
+            <div>
+                <button id="truth-btn">TRUTH</button>
+                <span>OR</span>
+                <button id="dare-btn">DARE</button>
+                <span>?</span>
+            </div>
+            <div>
+                <button id="random-btn">Decide for me</button>
+            </div>
+            <div>
+                <h1 id="prompt-header"></h1>
+                <p id="prompt-result"></p>
+            </div>
+        </div>
+        <script src="dist/main.js"></script>
+    </body>
+</html>
