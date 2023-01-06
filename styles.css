@@ -1,7 +1,128 @@
-#editor {
-    display: none;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#main {
+body {
+    color: white;
+    background: black;
+    font-family: sans-serif;
+}
+
+.heading {
+    font-size: 4rem;
     display: block;
+}
+
+.subheading {
+    font-size: 2rem;
+    display: block;
+}
+
+.hide {
+    display: none !important;
+}
+
+#edit-menu {
+    display: flex;
+    flex-direction: column;
+}
+.editor-row {
+    display: flex;
+}
+
+#main-menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.row {
+    padding: 1rem;
+}
+
+.header-row {
+    text-align: right;
+}
+
+.question-row, .random-row {
+    text-align: center;
+}
+
+.question-row {
+    font-size: 6rem;
+}
+
+button {
+    border-radius: 0.5rem;
+    background: none;
+    color: inherit;
+    font: inherit;
+    padding: 0.3em;
+    border: 0.15rem solid white;
+}
+
+button:hover {
+    color: black;
+    background: white;
+}
+
+#truth-btn {
+    border-color: #00CCFF;
+    color: #00CCFF;
+}
+
+#truth-btn:hover {
+    color: white;
+    background: #00AAD4;
+}
+
+#dare-btn {
+    border-color: #FF0066;
+    color: #FF0066;
+}
+
+#dare-btn:hover {
+    color: white;
+    background: #D40055;
+}
+
+.prompt-row {
+    flex-grow: 1;
+}
+
+.prompt {
+    border: 0.15rem solid white;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.prompt > .heading {
+    font-size: 4rem;
+    display: block;
+}
+
+.prompt > .text {
+    flex-grow: 1;
+}
+
+.truth-prompt {
+    border-color: #00CCFF;
+}
+
+.truth-prompt > .heading {
+    color: #00CCFF;
+}
+
+.dare-prompt {
+    border-color: #FF0066;
+}
+
+.dare-prompt > .heading {
+    color: #FF0066;
 }

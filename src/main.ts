@@ -79,45 +79,51 @@ window.addEventListener("load", (ev: Event) => {
     restoreState();
 });
 
+const truthPrompt: HTMLElement = <HTMLElement> document.querySelector(".truth-prompt");
+const truthText: HTMLElement = <HTMLElement> document.querySelector(".truth-prompt > .text");
+const darePrompt: HTMLElement = <HTMLElement> document.querySelector(".dare-prompt");
+const dareText: HTMLElement = <HTMLElement> document.querySelector(".dare-prompt > .text");
+
 function displayTruth() {
-    (<HTMLElement> document.querySelector("#prompt-header")).innerText = "TRUTH";
-    (<HTMLElement> document.querySelector("#prompt-result")).innerText = truthQueue.next();
+    truthPrompt.classList.remove("hide");
+    darePrompt.classList.add("hide");
+    truthText.innerText = truthQueue.next();
 }
 
 function displayDare() {
-    (<HTMLElement> document.querySelector("#prompt-header")).innerText = "DARE";
-    (<HTMLElement> document.querySelector("#prompt-result")).innerText = dareQueue.next();
+    darePrompt.classList.remove("hide");
+    truthPrompt.classList.add("hide");
+    dareText.innerText = dareQueue.next();
 }
 
 document.querySelector("#truth-btn")!.addEventListener("click", displayTruth);
 document.querySelector("#dare-btn")!.addEventListener("click", displayDare);
+
 document.querySelector("#random-btn")!.addEventListener("click", (ev: Event) => {
     Math.random() < 0.5 ? displayTruth() : displayDare();
 });
+
 document.querySelector("#show-editor-btn")!.addEventListener("click", (ev: Event) => {
     showEditor();
 });
 
-
-
-const editor = <HTMLElement> document.querySelector("#editor");
-const main = <HTMLElement> document.querySelector("#main");
+const editor = <HTMLElement> document.querySelector("#edit-menu");
+const main = <HTMLElement> document.querySelector("#main-menu");
 const truthTextArea = <HTMLTextAreaElement> document.querySelector("#truth-text-area");
 const dareTextArea = <HTMLTextAreaElement> document.querySelector("#dare-text-area");
 const editorSaveBtn = <HTMLButtonElement> document.querySelector("#editor-save-btn");
 editorSaveBtn.addEventListener("click", hideEditor);
 
-
 function showEditor() {
-    editor.style.display = "block";
-    main.style.display = "none";
+    editor.classList.remove("hide");
+    main.classList.add("hide");
     truthTextArea.value = truths.join("\n");
     dareTextArea.value = dares.join("\n");
 }
 
 function hideEditor() {
-    editor.style.display = "none";
-    main.style.display = "block";
+    editor.classList.add("hide");
+    main.classList.remove("hide");
     setTruths(truthTextArea.value.split("\n"));
     setDares(dareTextArea.value.split("\n"));
     saveState();

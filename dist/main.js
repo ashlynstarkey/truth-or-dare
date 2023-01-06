@@ -63,13 +63,19 @@ function saveState() {
 window.addEventListener("load", (ev) => {
     restoreState();
 });
+const truthPrompt = document.querySelector(".truth-prompt");
+const truthText = document.querySelector(".truth-prompt > .text");
+const darePrompt = document.querySelector(".dare-prompt");
+const dareText = document.querySelector(".dare-prompt > .text");
 function displayTruth() {
-    document.querySelector("#prompt-header").innerText = "TRUTH";
-    document.querySelector("#prompt-result").innerText = truthQueue.next();
+    truthPrompt.classList.remove("hide");
+    darePrompt.classList.add("hide");
+    truthText.innerText = truthQueue.next();
 }
 function displayDare() {
-    document.querySelector("#prompt-header").innerText = "DARE";
-    document.querySelector("#prompt-result").innerText = dareQueue.next();
+    darePrompt.classList.remove("hide");
+    truthPrompt.classList.add("hide");
+    dareText.innerText = dareQueue.next();
 }
 document.querySelector("#truth-btn").addEventListener("click", displayTruth);
 document.querySelector("#dare-btn").addEventListener("click", displayDare);
@@ -79,21 +85,21 @@ document.querySelector("#random-btn").addEventListener("click", (ev) => {
 document.querySelector("#show-editor-btn").addEventListener("click", (ev) => {
     showEditor();
 });
-const editor = document.querySelector("#editor");
-const main = document.querySelector("#main");
+const editor = document.querySelector("#edit-menu");
+const main = document.querySelector("#main-menu");
 const truthTextArea = document.querySelector("#truth-text-area");
 const dareTextArea = document.querySelector("#dare-text-area");
 const editorSaveBtn = document.querySelector("#editor-save-btn");
 editorSaveBtn.addEventListener("click", hideEditor);
 function showEditor() {
-    editor.style.display = "block";
-    main.style.display = "none";
+    editor.classList.remove("hide");
+    main.classList.add("hide");
     truthTextArea.value = truths.join("\n");
     dareTextArea.value = dares.join("\n");
 }
 function hideEditor() {
-    editor.style.display = "none";
-    main.style.display = "block";
+    editor.classList.add("hide");
+    main.classList.remove("hide");
     setTruths(truthTextArea.value.split("\n"));
     setDares(dareTextArea.value.split("\n"));
     saveState();

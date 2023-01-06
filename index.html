@@ -5,6 +5,49 @@
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
+        <div id="edit-menu" class="hide">
+            <div class="row title-row">
+                <span class="heading">Edit Prompts</span>
+            </div>
+            <div class="row editor-row">
+                <div>
+                <span class="subheading">Truths</span>
+                <textarea rows="25" cols="80" id="truth-text-area"></textarea>
+                </div>
+                <div>
+                <span class="subheading">Dares</span>
+                <textarea rows="25" cols="80" id="dare-text-area"></textarea>
+                </div>
+            </div>
+            <div class="row footer-row">
+                <button id="editor-save-btn">Save</button>
+            </div>
+        </div>
+        <div id="main-menu">
+            <div class="row header-row">
+                <button id="show-editor-btn">Edit Prompts</button>
+            </div>
+            <div class="row question-row">
+                <button id="truth-btn">TRUTH</button>
+                <span>OR</span>
+                <button id="dare-btn">DARE</button>
+                <span>?</span>
+            </div>
+            <div class="row random-row">
+                <button id="random-btn">Decide For Me</button>
+            </div>
+            <div class="row prompt-row">
+                <div class="prompt truth-prompt hide">
+                    <span class="heading">TRUTH</span>
+                    <span class="text"></span>
+                </div>
+                <div class="prompt dare-prompt hide">
+                    <span class="heading">DARE</span>
+                    <span class="text"></span>
+                </div>
+            </div>
+        </div>
+<!--
         <div id="editor">
             <h1>Truths</h1>
             <textarea id="truth-text-area" rows="25" cols="40"></textarea>
@@ -31,6 +74,7 @@
                 <p id="prompt-result"></p>
             </div>
         </div>
+-->
         <script src="dist/main.js"></script>
     </body>
 </html>
